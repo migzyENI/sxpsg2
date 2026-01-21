@@ -1,0 +1,19 @@
+{
+  "version": 4,
+  "title": "Portal Title",
+  "media-path": "media",
+  "template-path": "template",
+  "template": "standard_template.htm",
+  "html-version": "5",
+  "output-file": "portal.html",
+  "favicon-size": 32,
+  "favicon-provider": "direct",
+  "primary-color": "#007bff",
+  "secondary-color": "#6c757d",
+  "text-primary": "#333",
+  "text-secondary": "#666",
+  "bg-primary": "#f8f9fa",
+  "bg-secondary": "#ffffff",
+  "border-color": "transparent",
+  "scrollbar-color": "#888"
+}

@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "list": [
+    {
+      "category": "Category Name",
+      "articles": [
+        {
+          "url": "https://nintendo.com",
+          "name": "Example Site",
+          "althypers": [
+            {
+              "alturl": "https://alternate.example.com",
+              "altname": "Alternate Name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

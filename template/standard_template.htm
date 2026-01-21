@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>__TITLE__</title>
+    <style>
+    :root {
+      --primary-color: __PRIMARY_COLOUR__;           /* Main brand color */
+      --secondary-color: __SECONDARY_COLOUR__;         /* Secondary accent */
+      --text-primary: __TEXT_PRIMARY__;               /* Main text */
+      --text-secondary: __TEXT_SECONDARY__;             /* Secondary text */
+      --bg-primary: __BG_PRIMARY__;              /* Main background */
+      --bg-secondary: __BG_SECONDARY__;            /* Secondary background */
+      --border-color: __BORDER_COLOUR__;               /* Border color */
+      --scrollbar-color: __SCROLLBAR_COLOUR__;            /* Scrollbar color */
+
+      /* Hover effects */
+      --hover-opacity: 0.1;
+
+      /* Layout */
+      --favicon-size: __FAVICON_SIZE__px; /* Will be replaced by Perl */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    main {
+      display: flex;
+      height: 100vh;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-color) transparent;
+    }
+
+    main::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    main::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    main::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-color);
+      border-radius: 4px;
+    }
+
+    .category-section {
+      min-width: 20vw;
+      width: 20vw;
+      height: 100vh;
+      padding: 2rem;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      overflow-y: auto;
+      border-right: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+    }
+
+    .category-section:nth-child(odd) {
+      background-color: var(--bg-primary);
+    }
+
+    .category-section:nth-child(even) {
+      background-color: var(--bg-secondary);
+    }
+
+    .category-title {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      position: sticky;
+      top: 0;
+      background: inherit;
+      z-index: 1;
+      padding-top: 0.5rem;
+      margin-top: -0.5rem;
+    }
+
+    .sitelink-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .sitelink-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sitelink {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-primary);
+      padding: 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+      border: 1px solid transparent;
+    }
+
+    .sitelink:hover {
+      background: color-mix(in srgb, var(--primary-color), transparent 90%);
+      border-color: color-mix(in srgb, var(--primary-color), transparent 80%);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sitelink-image {
+      width: var(--favicon-size);
+      height: var(--favicon-size);
+      margin-right: 0.75rem;
+      object-fit: contain;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .sitelink-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.3;
+      flex-grow: 1;
+      color: var(--text-primary);
+    }
+
+    .alt-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-left: calc(var(--favicon-size) + 0.75rem);
+      margin-top: -0.5rem;
+    }
+
+    .alt-link {
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      background: color-mix(in srgb, var(--secondary-color), transparent 95%);
+      border: 1px solid color-mix(in srgb, var(--secondary-color), transparent 90%);
+      border-radius: 3px;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .alt-link:hover {
+      background: color-mix(in srgb, var(--primary-color), transparent 90%);
+       color: var(--primary-color);
+    }
+
+    /* Fallback for browsers without CSS variable support */
+    @supports not (--css: variables) {
+      .category-section {
+        background-color: #ffffff;
+      }
+
+      .category-section:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .category-title {
+        border-bottom-color: #6c757d;
+      }
+
+      .sitelink {
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .sitelink:hover {
+        background: rgba(0, 123, 255, 0.1);
+        border-color: rgba(0, 123, 255, 0.2);
+      }
+
+      .alt-link:hover {
+        background: rgba(0, 123, 255, 0.1);
+        color: #007bff;
+      }
+    }
+
+    @media (max-aspect-ratio: 4/3) {
+      .category-section {
+        min-width: 25vw;
+        width: 25vw;
+      }
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+      .category-section {
+        min-width: 100vw;
+        width: 100vw;
+      }
+    }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const mainContainer = document.querySelector('main');
+
+        // Horizontal scroll with mouse wheel
+        mainContainer.addEventListener('wheel', function(e) {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            mainContainer.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+
+        // Mobile
+        let startX = 0;
+        let startY = 0;
+
+        mainContainer.addEventListener('touchstart', function(e) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        mainContainer.addEventListener('touchmove', function(e) {
+          if (!e.cancelable) return;
+          const moveX = e.touches[0].clientX;
+          const moveY = e.touches[0].clientY;
+
+          if (Math.abs(moveX - startX) > Math.abs(moveY - startY)) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+
+        // Keyboard
+        document.addEventListener('keydown', function(e) {
+          const scrollAmount = 300;
+          switch(e.key) {
+            case 'ArrowLeft':
+              mainContainer.scrollLeft -= scrollAmount;
+              e.preventDefault();
+              break;
+            case 'ArrowRight':
+              mainContainer.scrollLeft += scrollAmount;
+              e.preventDefault();
+              break;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <main>
+      __SECTIONS__
+    </main>
+  </body>
+</html>
