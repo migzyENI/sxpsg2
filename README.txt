@@ -1,7 +1,9 @@
-Static XHTML Portal Site Generator 2.2250.250perl
+Static XHTML Portal Site Generator 2.3250.0perl
+# Hash update!
+# Use argument -h to see 3 new features that were half assed! Yummy!
 
 DEPENDECIES:
- JSON, URI, Getopt::Long, HTML::Tiny, Path::Tiny, LWP::UserAgent
+ JSON, URI, Getopt::Long, HTML::Tiny, Path::Tiny, LWP::UserAgent ( CryptoX for page cryptography )
 
 For Fedora:
 ```
@@ -20,7 +22,7 @@ TO RUN:
 ```
 	$ perl sxpsg2.perl -h #show help
 	$ perl sxpsg2.perl -d configuration -c portal_config.json -l portal_list.json #build site
-
+    BASH$ ./makeportal.sh portal_config.json portal_list.json "YOUR_KEY_HERE"
 ```
 
 Sample Configurations:
@@ -73,10 +75,10 @@ Sample Configurations:
 
 Current Todos:
 
-Implement proper XML validation and add support for XHTML versions (IK IK but building towards strictness is easier.)
+Implement proper XML validation and add support for XHTML versions (IK IK but building towards strictness is easier.) -- still not done
 
-More Providers should be added
+More Providers should be added -- doesn't matte rmuch
 
-Refactor code a little for future expansion.
+Refactor code a little for future expansion. -- well claude is a bitch and a half.
 
 
